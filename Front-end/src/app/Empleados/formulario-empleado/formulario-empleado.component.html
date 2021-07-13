@@ -1,0 +1,23 @@
+<app-errores-api [errores]="errores" ></app-errores-api>
+<form (ngSubmit)="Guardar()" [formGroup]="form"  >
+  <mat-form-field appearance="outline" >
+    <mat-label>Nombres*</mat-label>
+    <input matInput  formControlName="nombres" >
+    <mat-error *ngIf="form.invalid">{{ErrorNombres()}}</mat-error>
+ </mat-form-field>
+ <mat-form-field appearance="outline" >
+  <mat-label>Cedula*</mat-label>
+  <input type="number" matInput  formControlName="cedula" >
+  <mat-error *ngIf="form.invalid">{{ErrorCedula()}}</mat-error>
+</mat-form-field>
+<mat-form-field appearance="outline" >
+  <mat-label>Fecha Nacimiento</mat-label>
+  <input formControlName="fechaNacimiento" matInput [matDatepicker]="picker" >
+  <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<div>
+  <button mat-raised-button color="accent" [disabled]="form.invalid">Guardar</button>
+  <a mat-stroked-button  routerLink="/Empleados">Cancelar</a>
+</div>
+</form>

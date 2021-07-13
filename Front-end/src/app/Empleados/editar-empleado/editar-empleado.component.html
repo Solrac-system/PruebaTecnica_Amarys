@@ -1,0 +1,3 @@
+<h2>Editar Empleado</h2>
+
+<app-formulario-empleado *ngIf="modelo" [modelo]="modelo" [errores]="errores" (onSubmit)="Guardar($event)" ></app-formulario-empleado>
